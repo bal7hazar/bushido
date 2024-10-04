@@ -12,7 +12,7 @@ import {
 import { Button } from "@/ui/elements/button";
 import { Input } from "@/ui/elements/input";
 import { Game } from "@/dojo/models/game";
-import { RotateCcw } from "lucide-react";
+import { Settings } from "lucide-react";
 
 export const UpdateGame = ({ game }: { game: Game}) => {
   const [worldId, setWorldId] = useState(game.worldId);
@@ -66,14 +66,14 @@ export const UpdateGame = ({ game }: { game: Game}) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button disabled={disabled}>
-          <RotateCcw className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
+        <Button variant="outline" size="icon" disabled={disabled}>
+          <Settings />
         </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Register a game</DialogTitle>
-          <DialogDescription>Provide the game data</DialogDescription>
+          <DialogTitle>Update a game</DialogTitle>
+          <DialogDescription>Update the game data</DialogDescription>
         </DialogHeader>
 
         <Input
@@ -130,7 +130,7 @@ export const UpdateGame = ({ game }: { game: Game}) => {
             isLoading={isLoading}
             onClick={handleClick}
           >
-            Update
+            Save
           </Button>
         </DialogClose>
       </DialogContent>

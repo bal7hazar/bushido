@@ -10,7 +10,8 @@ import {
 } from "@/ui/elements/table";
 import { UpdateGame } from "../actions/UpdateGame";
 import { RegisterGame } from "../actions/RegisterGame";
-import { useGame } from "@/hooks/useGame";
+import { RegisterAchievement } from "../actions/RegisterAchievement";
+import { Achievements } from "./Achievements";
 
 export const Games = () => {
   const { games } = useGames();
@@ -22,7 +23,6 @@ export const Games = () => {
         <TableCaption>Games</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]">#</TableHead>
             <TableHead>World Address</TableHead>
             <TableHead>Namespace</TableHead>
             <TableHead>Name</TableHead>
@@ -41,8 +41,9 @@ export const Games = () => {
               <TableCell>{game.description}</TableCell>
               <TableCell>{game.imageUri}</TableCell>
               <TableCell>{game.toriiUrl}</TableCell>
-              <TableCell>
+              <TableCell className="flex gap-2">
                 <UpdateGame game={game} />
+                <Achievements game={game} />
               </TableCell>
             </TableRow>
           ))}

@@ -1,10 +1,10 @@
 import { useDojo } from "@/dojo/useDojo";
 import { useEffect, useState } from "react";
 import { useEntityQuery } from "@dojoengine/react";
-import { Has, getComponentValue } from "@dojoengine/recs";
+import { Has, HasValue, getComponentValue } from "@dojoengine/recs";
 import { Achievement } from "@/dojo/models/achievement";
 
-export const useAchievements = (): { achievements: Achievement[] } => {
+export const useAchievements = ({ worldId, namespace }: { worldId: string | undefined, namespace: string | undefined }): { achievements: Achievement[] } => {
   const [achievements, setAchievements] = useState<any>({});
 
   const {
@@ -16,7 +16,7 @@ export const useAchievements = (): { achievements: Achievement[] } => {
     },
   } = useDojo();
 
-  const achievementKeys = useEntityQuery([Has(Achievement)]);
+  const achievementKeys = useEntityQuery([Has(Achievement), HasValue(Achievement, { world_id: BigInt(worldId || 0), namespace: BigInt(namespace || 0) })]);
 
   useEffect(() => {
     const components = achievementKeys.map((entity) => {

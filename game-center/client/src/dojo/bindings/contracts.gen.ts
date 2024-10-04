@@ -32,7 +32,7 @@ export interface RegisterAchievement {
     account: Account;
     world_id: bigint;
     namespace: bigint;
-    achievement_id: bigint;
+    achievement_id: string;
     points: number;
 }
 
@@ -40,7 +40,7 @@ export interface UpdateAchievement {
     account: Account;
     world_id: bigint;
     namespace: bigint;
-    achievement_id: bigint;
+    achievement_id: string;
     points: number;
 }
 
