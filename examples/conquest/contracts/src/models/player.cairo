@@ -15,7 +15,12 @@ impl PlayerImpl of PlayerTrait {
         // [Check] Name is valid
         assert(name != 0, errors::PLAYER_INVALID_NAME);
         // [Return] Player
-        Player { id, name }
+        Player { id, name, counter: 0 }
+    }
+
+    #[inline]
+    fn conquest(ref self: Player) {
+        self.counter += 1;
     }
 }
 

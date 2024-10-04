@@ -21,6 +21,7 @@ mod models {
 mod components {
     mod signable;
     mod playable;
+    mod questable;
 }
 
 mod systems {

@@ -4,6 +4,7 @@ pub struct Player {
     #[key]
     id: felt252,
     name: felt252,
+    counter: u8,
 }
 
 #[derive(IntrospectPacked, Copy, Drop, Serde)]

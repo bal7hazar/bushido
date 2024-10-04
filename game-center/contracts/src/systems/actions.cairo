@@ -1,11 +1,3 @@
-// Starknet imports
-
-use starknet::ContractAddress;
-
-// Dojo imports
-
-use dojo::world::IWorldDispatcher;
-
 // Interfaces
 
 #[starknet::interface]

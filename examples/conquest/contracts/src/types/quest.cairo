@@ -1,6 +1,10 @@
 use conquest::elements::quests;
 use conquest::models::tile::Tile;
 
+// Constants
+
+pub const QUEST_COUNT: u8 = 2;
+
 #[derive(Copy, Drop)]
 enum Quest {
     None,
@@ -10,6 +14,24 @@ enum Quest {
 
 #[generate_trait]
 impl QuestImpl of QuestTrait {
+    #[inline]
+    fn identifier(self: Quest) -> felt252 {
+        match self {
+            Quest::None => 0,
+            Quest::Conqueror => quests::conqueror::Conqueror::identifier(),
+            Quest::Fanatic => quests::fanatic::Fanatic::identifier(),
+        }
+    }
+
+    #[inline]
+    fn points(self: Quest) -> u16 {
+        match self {
+            Quest::None => 0,
+            Quest::Conqueror => quests::conqueror::Conqueror::points(),
+            Quest::Fanatic => quests::fanatic::Fanatic::points(),
+        }
+    }
+
     #[inline]
     fn title(self: Quest) -> ByteArray {
         match self {
@@ -29,11 +51,20 @@ impl QuestImpl of QuestTrait {
     }
 
     #[inline]
-    fn verify(self: Quest, ref tiles: Array<Tile>, player_id: felt252) -> bool {
+    fn image_uri(self: Quest) -> ByteArray {
         match self {
-            Quest::None => false,
-            Quest::Conqueror => quests::conqueror::Conqueror::verify(ref tiles, player_id),
-            Quest::Fanatic => quests::fanatic::Fanatic::verify(ref tiles, player_id),
+            Quest::None => "",
+            Quest::Conqueror => quests::conqueror::Conqueror::image_uri(),
+            Quest::Fanatic => quests::fanatic::Fanatic::image_uri(),
+        }
+    }
+
+    #[inline]
+    fn completion(self: Quest, ref tiles: Array<Tile>, player_id: felt252) -> (u8, u8) {
+        match self {
+            Quest::None => (0, 100),
+            Quest::Conqueror => quests::conqueror::Conqueror::completion(ref tiles, player_id),
+            Quest::Fanatic => quests::fanatic::Fanatic::completion(ref tiles, player_id),
         }
     }
 }
