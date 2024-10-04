@@ -66,7 +66,7 @@ mod QuestableComponent {
             self: @ComponentState<TContractState>,
             world: IWorldDispatcher,
             quest: Quest,
-            ref positions: Array<(i32, i32)>,
+            ref tile_ids: Array<u32>,
         ) {
             // [Setup] Datastore
             let store: Store = StoreTrait::new(world);
@@ -78,14 +78,14 @@ mod QuestableComponent {
 
             // [Compute] Tiles
             let mut tiles: Array<Tile> = array![];
-            while let Option::Some((x, y)) = positions.pop_front() {
-                let tile = store.get_tile(x, y);
+            while let Option::Some(tile_id) = tile_ids.pop_front() {
+                let tile = store.get_tile(tile_id);
                 tiles.append(tile);
             };
 
             // [Effect] Verify quest completion
             let (num, den) = quest.completion(ref tiles, player_id);
-            let progress: u8 = (num * 100) / den;
+            let progress: u8 = core::cmp::min((num * 100) / den, 100).try_into().unwrap();
 
             // [Event] Emit quest completion event
             let contract_address = get_contract_address();

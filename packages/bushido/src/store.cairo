@@ -66,10 +66,11 @@ impl StoreImpl of StoreTrait {
         points: u16,
         title: ByteArray,
         description: ByteArray,
-        image_uri: ByteArray
+        image_uri: ByteArray,
+        time: u64,
     ) {
         let _event: AchievementCreation = AchievementCreationTrait::new(
-            world_id, namespace, achievement_id, points, title, description, image_uri
+            world_id, namespace, achievement_id, points, title, description, image_uri, time
         );
         emit!(self.world, (_event,));
     }
@@ -82,9 +83,10 @@ impl StoreImpl of StoreTrait {
         achievement_id: felt252,
         player_id: felt252,
         progress: u8,
+        time: u64,
     ) {
         let _event: AchievementCompletion = AchievementCompletionTrait::new(
-            world_id, namespace, achievement_id, player_id, progress
+            world_id, namespace, achievement_id, player_id, progress, time
         );
         emit!(self.world, (_event,));
     }

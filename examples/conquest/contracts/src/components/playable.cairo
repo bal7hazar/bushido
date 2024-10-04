@@ -30,26 +30,24 @@ mod PlayableComponent {
     impl InternalImpl<
         TContractState, +HasComponent<TContractState>
     > of InternalTrait<TContractState> {
-        fn conquest(
-            self: @ComponentState<TContractState>, world: IWorldDispatcher, x: i32, y: i32
-        ) {
+        fn conquest(self: @ComponentState<TContractState>, world: IWorldDispatcher) {
             // [Setup] Datastore
             let store: Store = StoreTrait::new(world);
 
             // [Check] Player exists
             let player_id: felt252 = get_caller_address().into();
-            let mut player = store.get_player(player_id);
+            let player = store.get_player(player_id);
             player.assert_is_created();
 
-            // [Check] Tile is not owned
-            let mut tile: Tile = store.get_tile(x, y);
-            tile.assert_not_owned(player_id);
+            // [Effect] Create tile
+            let tile_id: u32 = world.uuid();
+            let mut tile: Tile = TileTrait::new(tile_id);
 
             // [Effect] Own tile
             let time = get_block_timestamp();
             tile.own(player_id, time);
 
-            // [Effect] Store tile
+            // [Effect] Update entities
             store.set_tile(tile);
         }
     }

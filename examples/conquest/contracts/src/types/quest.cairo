@@ -60,7 +60,7 @@ impl QuestImpl of QuestTrait {
     }
 
     #[inline]
-    fn completion(self: Quest, ref tiles: Array<Tile>, player_id: felt252) -> (u8, u8) {
+    fn completion(self: Quest, ref tiles: Array<Tile>, player_id: felt252) -> (u16, u16) {
         match self {
             Quest::None => (0, 100),
             Quest::Conqueror => quests::conqueror::Conqueror::completion(ref tiles, player_id),

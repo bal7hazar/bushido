@@ -23,6 +23,7 @@ impl AchievementCompletionImpl of AchievementCompletionTrait {
         achievement_id: felt252,
         player_id: felt252,
         progress: u8,
+        time: u64,
     ) -> AchievementCompletion {
         // [Check] Inputs
         AchievementCompletionAssert::assert_valid_world(world_id);
@@ -30,7 +31,7 @@ impl AchievementCompletionImpl of AchievementCompletionTrait {
         AchievementCompletionAssert::assert_valid_achievement(achievement_id);
         AchievementCompletionAssert::assert_valid_progress(progress);
         // [Return] Achievement
-        AchievementCompletion { world_id, namespace, id: achievement_id, player_id, progress }
+        AchievementCompletion { world_id, namespace, id: achievement_id, player_id, progress, time }
     }
 }
 

@@ -3,8 +3,8 @@
 #[starknet::interface]
 trait IActions<TContractState> {
     fn signup(self: @TContractState, name: felt252,);
-    fn conquest(self: @TContractState, x: i32, y: i32,);
-    fn verify(self: @TContractState, quest: u8, positions: Array<(i32, i32)>,);
+    fn conquest(self: @TContractState);
+    fn verify(self: @TContractState, quest: u8, tile_ids: Array<u32>,);
 }
 
 #[dojo::contract]
@@ -74,12 +74,12 @@ mod Actions {
             self.signable.signup(self.world(), name)
         }
 
-        fn conquest(self: @ContractState, x: i32, y: i32) {
-            self.playable.conquest(self.world(), x, y)
+        fn conquest(self: @ContractState) {
+            self.playable.conquest(self.world())
         }
 
-        fn verify(self: @ContractState, quest: u8, mut positions: Array<(i32, i32)>) {
-            self.questable.verify(self.world(), quest.into(), ref positions)
+        fn verify(self: @ContractState, quest: u8, mut tile_ids: Array<u32>) {
+            self.questable.verify(self.world(), quest.into(), ref tile_ids)
         }
     }
 }

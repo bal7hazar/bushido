@@ -6,7 +6,7 @@ mod AchievableComponent {
 
     // Starknet imports
 
-    use starknet::info::get_caller_address;
+    use starknet::info::{get_caller_address, get_block_timestamp};
 
     // Dojo imports
 
@@ -50,9 +50,10 @@ mod AchievableComponent {
             let store: Store = StoreTrait::new(world);
 
             // [Event] Emit achievement creation
+            let time: u64 = get_block_timestamp();
             store
                 .emit_achievement_creation(
-                    world_id, namespace, achievement_id, points, title, description, image_uri
+                    world_id, namespace, achievement_id, points, title, description, image_uri, time
                 );
         }
 
@@ -69,9 +70,10 @@ mod AchievableComponent {
             let store: Store = StoreTrait::new(world);
 
             // [Event] Emit achievement completion
+            let time: u64 = get_block_timestamp();
             store
                 .emit_achievement_completion(
-                    world_id, namespace, achievement_id, player_id, progress
+                    world_id, namespace, achievement_id, player_id, progress, time
                 );
         }
     }

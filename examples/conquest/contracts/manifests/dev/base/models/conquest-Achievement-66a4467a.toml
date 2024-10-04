@@ -1,0 +1,32 @@
+kind = "DojoModel"
+class_hash = "0x1816d39c4a2c2a712e686af42bd824133024f69806add042e0e4ded7a0630f7"
+original_class_hash = "0x1816d39c4a2c2a712e686af42bd824133024f69806add042e0e4ded7a0630f7"
+abi = "manifests/dev/base/abis/models/conquest-Achievement-66a4467a.json"
+tag = "conquest-Achievement"
+qualified_path = "bushido::models::index::achievement"
+manifest_name = "conquest-Achievement-66a4467a"
+
+[[members]]
+name = "world_id"
+type = "felt252"
+key = true
+
+[[members]]
+name = "namespace"
+type = "felt252"
+key = true
+
+[[members]]
+name = "id"
+type = "felt252"
+key = true
+
+[[members]]
+name = "points"
+type = "u16"
+key = false
+
+[[members]]
+name = "whitelisted"
+type = "bool"
+key = false

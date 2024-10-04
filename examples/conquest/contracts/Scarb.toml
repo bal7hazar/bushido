@@ -7,9 +7,16 @@ version = "0.0.0"
 sierra-replace-ids = true
 
 [scripts]
-migrate = "sozo build && sozo migrate apply"
+dev = "sozo clean && sozo build --typescript && sozo migrate plan && sozo migrate apply"
 
 [dependencies]
 dojo = { git = "https://github.com/dojoengine/dojo", tag = "v1.0.0-alpha.13" }
+bushido = { path = "../../../packages/bushido" }
 
 [[target.dojo]]
+build-external-contracts = [
+    "bushido::models::index::Game",
+    "bushido::models::index::Achievement",
+    "bushido::events::index::AchievementCreation",
+    "bushido::events::index::AchievementCompletion",
+]

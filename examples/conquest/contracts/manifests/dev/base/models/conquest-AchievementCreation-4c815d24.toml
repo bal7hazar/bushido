@@ -1,0 +1,47 @@
+kind = "DojoModel"
+class_hash = "0x5ea09d45cd076228ccd3e283fe8e8a540f87eb0f8bd4414368255a22377f061"
+original_class_hash = "0x5ea09d45cd076228ccd3e283fe8e8a540f87eb0f8bd4414368255a22377f061"
+abi = "manifests/dev/base/abis/models/conquest-AchievementCreation-4c815d24.json"
+tag = "conquest-AchievementCreation"
+qualified_path = "bushido::events::index::achievement_creation"
+manifest_name = "conquest-AchievementCreation-4c815d24"
+
+[[members]]
+name = "world_id"
+type = "felt252"
+key = true
+
+[[members]]
+name = "namespace"
+type = "felt252"
+key = true
+
+[[members]]
+name = "id"
+type = "felt252"
+key = true
+
+[[members]]
+name = "points"
+type = "u16"
+key = false
+
+[[members]]
+name = "title"
+type = "ByteArray"
+key = false
+
+[[members]]
+name = "description"
+type = "ByteArray"
+key = false
+
+[[members]]
+name = "image_uri"
+type = "ByteArray"
+key = false
+
+[[members]]
+name = "time"
+type = "u64"
+key = false

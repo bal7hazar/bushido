@@ -10,8 +10,8 @@ mod errors {
 #[generate_trait]
 impl TileImpl of TileTrait {
     #[inline]
-    fn new(x: i32, y: i32, player_id: felt252) -> Tile {
-        Tile { x, y, player_id, time: 0 }
+    fn new(id: u32) -> Tile {
+        Tile { id, player_id: 0, time: 0 }
     }
 
     #[inline]
@@ -38,14 +38,12 @@ mod tests {
     // Constants
 
     const PLAYER_ID: felt252 = 'ID';
-    const X: i32 = -7;
-    const Y: i32 = 42;
+    const TILE_ID: u32 = 42;
 
     #[test]
     fn test_tile_new() {
-        let tile = TileTrait::new(X, Y, PLAYER_ID);
-        assert_eq!(tile.x, X);
-        assert_eq!(tile.y, Y);
-        assert_eq!(tile.player_id, PLAYER_ID);
+        let tile = TileTrait::new(TILE_ID);
+        assert_eq!(tile.id, TILE_ID);
+        assert_eq!(tile.player_id, 0);
     }
 }

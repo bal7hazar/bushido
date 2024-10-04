@@ -32,8 +32,8 @@ impl StoreImpl of StoreTrait {
     }
 
     #[inline]
-    fn get_tile(self: Store, x: i32, y: i32) -> Tile {
-        TileStore::get(self.world, x, y)
+    fn get_tile(self: Store, tile_id: u32) -> Tile {
+        TileStore::get(self.world, tile_id)
     }
 
     #[inline]

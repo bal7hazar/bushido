@@ -2,9 +2,17 @@
 version = 1
 
 [[package]]
+name = "bushido"
+version = "0.0.0"
+dependencies = [
+ "dojo",
+]
+
+[[package]]
 name = "conquest"
 version = "0.0.0"
 dependencies = [
+ "bushido",
  "dojo",
 ]
 

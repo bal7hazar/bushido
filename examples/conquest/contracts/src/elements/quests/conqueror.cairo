@@ -1,6 +1,6 @@
 use conquest::elements::quests::interface::{QuestTrait, Tile};
 
-const CONQUESTS_REQUIRED: u8 = 3;
+const CONQUESTS_REQUIRED: u16 = 3;
 
 impl Conqueror of QuestTrait {
     #[inline]
@@ -25,16 +25,16 @@ impl Conqueror of QuestTrait {
 
     #[inline]
     fn image_uri() -> ByteArray {
-        "https://static.wikia.nocookie.net/humankind_gamepedia_en/images/e/ed/Conquest.png/revision/latest?cb=20210107072900"
+        "https://storage.googleapis.com/pod_public/1300/177057.jpg"
     }
 
     #[inline]
-    fn completion(ref tiles: Array<Tile>, player_id: felt252) -> (u8, u8) {
-        let mut conquests: u8 = 0;
+    fn completion(ref tiles: Array<Tile>, player_id: felt252) -> (u16, u16) {
+        let mut conquests: u16 = 0;
 
         loop {
             match tiles.pop_front() {
-                Option::Some(tile) => { if tile.player_id != player_id {
+                Option::Some(tile) => { if tile.player_id == player_id {
                     conquests += 1;
                 } },
                 Option::None => { break (conquests, CONQUESTS_REQUIRED); }

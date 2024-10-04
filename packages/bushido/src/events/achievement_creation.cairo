@@ -26,7 +26,8 @@ impl AchievementCreationImpl of AchievementCreationTrait {
         points: u16,
         title: ByteArray,
         description: ByteArray,
-        image_uri: ByteArray
+        image_uri: ByteArray,
+        time: u64,
     ) -> AchievementCreation {
         // [Check] Inputs
         // [Info] We don't check points here, leave free the game to decide
@@ -37,7 +38,7 @@ impl AchievementCreationImpl of AchievementCreationTrait {
         AchievementCreationAssert::assert_valid_description(@description);
         // [Return] Achievement
         AchievementCreation {
-            world_id, namespace, id: achievement_id, points, title, description, image_uri
+            world_id, namespace, id: achievement_id, points, title, description, image_uri, time
         }
     }
 }

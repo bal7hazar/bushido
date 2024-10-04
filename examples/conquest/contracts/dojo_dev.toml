@@ -1,8 +1,8 @@
 [world]
-name = "Bushido"
-description = "Dojo Quests"
-website = "https://github.com/dojoengine/dojo-starter"
-seed = "bushido"
+name = "Conquest"
+description = "Dojo Quests Example"
+website = "https://github.com/dojoengine/dojo"
+seed = "conquest"
 
 [world.socials]
 x = "https://x.com/ohayo_dojo"
@@ -11,7 +11,8 @@ github = "https://github.com/dojoengine/dojo-starter"
 telegram = "https://t.me/dojoengine"
 
 [namespace]
-default = "bushido"
+default = "conquest"
+mappings = { "bushido" = "conquest" }
 
 [env]
 rpc_url = "http://localhost:5050/"

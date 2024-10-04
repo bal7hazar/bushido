@@ -6,5 +6,5 @@ trait QuestTrait {
     fn title() -> ByteArray;
     fn description() -> ByteArray;
     fn image_uri() -> ByteArray;
-    fn completion(ref tiles: Array<Tile>, player_id: felt252) -> (u8, u8);
+    fn completion(ref tiles: Array<Tile>, player_id: felt252) -> (u16, u16);
 }

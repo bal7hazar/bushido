@@ -1,0 +1,15 @@
+kind = "DojoContract"
+class_hash = "0x459be924f1ccd7703f9f5ef8e1030af93a00cdf5d71c25caa8fee8dfc444953"
+original_class_hash = "0x459be924f1ccd7703f9f5ef8e1030af93a00cdf5d71c25caa8fee8dfc444953"
+base_class_hash = "0x0"
+abi = "manifests/dev/base/abis/contracts/conquest-Actions-4c864b1c.json"
+reads = []
+writes = []
+init_calldata = []
+tag = "conquest-Actions"
+systems = [
+    "signup",
+    "conquest",
+    "verify",
+]
+manifest_name = "conquest-Actions-4c864b1c"

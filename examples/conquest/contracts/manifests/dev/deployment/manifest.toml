@@ -1,0 +1,257 @@
+[world]
+kind = "WorldContract"
+class_hash = "0x5c4271c8cd454ceb8049d2b0724c99d12c2ef8077fc6ad325b18978f614aab0"
+original_class_hash = "0x5c4271c8cd454ceb8049d2b0724c99d12c2ef8077fc6ad325b18978f614aab0"
+abi = "manifests/dev/deployment/abis/dojo-world.json"
+address = "0x4a38d468545b5d2fa26fe66920c0e527aae87362269992a0268c0bb701fcc15"
+transaction_hash = "0x2c0298176c01295220560310507f5b7100eebbd030f36e18f76a8e2a6c4624c"
+block_number = 3
+seed = "conquest"
+manifest_name = "dojo-world"
+
+[world.metadata]
+profile_name = "dev"
+rpc_url = "http://localhost:5050/"
+
+[base]
+kind = "Class"
+class_hash = "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2"
+original_class_hash = "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2"
+abi = "manifests/dev/deployment/abis/dojo-base.json"
+tag = "dojo-base"
+manifest_name = "dojo-base"
+
+[[contracts]]
+kind = "DojoContract"
+address = "0x13c0094b87cd9a2d2bdaf311c3be7ccf97a44bdc1ec6d1a461b1315c7d6333"
+class_hash = "0x459be924f1ccd7703f9f5ef8e1030af93a00cdf5d71c25caa8fee8dfc444953"
+original_class_hash = "0x459be924f1ccd7703f9f5ef8e1030af93a00cdf5d71c25caa8fee8dfc444953"
+base_class_hash = "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2"
+abi = "manifests/dev/deployment/abis/contracts/conquest-Actions-4c864b1c.json"
+reads = []
+writes = [
+    "conquest-Player",
+    "conquest-Tile",
+]
+init_calldata = []
+tag = "conquest-Actions"
+systems = [
+    "signup",
+    "conquest",
+    "verify",
+]
+manifest_name = "conquest-Actions-4c864b1c"
+
+[[models]]
+kind = "DojoModel"
+class_hash = "0x1816d39c4a2c2a712e686af42bd824133024f69806add042e0e4ded7a0630f7"
+original_class_hash = "0x1816d39c4a2c2a712e686af42bd824133024f69806add042e0e4ded7a0630f7"
+abi = "manifests/dev/deployment/abis/models/conquest-Achievement-66a4467a.json"
+tag = "conquest-Achievement"
+qualified_path = "bushido::models::index::achievement"
+manifest_name = "conquest-Achievement-66a4467a"
+
+[[models.members]]
+name = "world_id"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "namespace"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "id"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "points"
+type = "u16"
+key = false
+
+[[models.members]]
+name = "whitelisted"
+type = "bool"
+key = false
+
+[[models]]
+kind = "DojoModel"
+class_hash = "0x12268045d00d4044b8f0ab2b3a9a3363a7e54c5e50d5bea296c754ef812dca2"
+original_class_hash = "0x12268045d00d4044b8f0ab2b3a9a3363a7e54c5e50d5bea296c754ef812dca2"
+abi = "manifests/dev/deployment/abis/models/conquest-AchievementCompletion-1d044dbd.json"
+tag = "conquest-AchievementCompletion"
+qualified_path = "bushido::events::index::achievement_completion"
+manifest_name = "conquest-AchievementCompletion-1d044dbd"
+
+[[models.members]]
+name = "world_id"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "namespace"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "id"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "player_id"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "progress"
+type = "u8"
+key = false
+
+[[models.members]]
+name = "time"
+type = "u64"
+key = false
+
+[[models]]
+kind = "DojoModel"
+class_hash = "0x5ea09d45cd076228ccd3e283fe8e8a540f87eb0f8bd4414368255a22377f061"
+original_class_hash = "0x5ea09d45cd076228ccd3e283fe8e8a540f87eb0f8bd4414368255a22377f061"
+abi = "manifests/dev/deployment/abis/models/conquest-AchievementCreation-4c815d24.json"
+tag = "conquest-AchievementCreation"
+qualified_path = "bushido::events::index::achievement_creation"
+manifest_name = "conquest-AchievementCreation-4c815d24"
+
+[[models.members]]
+name = "world_id"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "namespace"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "id"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "points"
+type = "u16"
+key = false
+
+[[models.members]]
+name = "title"
+type = "ByteArray"
+key = false
+
+[[models.members]]
+name = "description"
+type = "ByteArray"
+key = false
+
+[[models.members]]
+name = "image_uri"
+type = "ByteArray"
+key = false
+
+[[models.members]]
+name = "time"
+type = "u64"
+key = false
+
+[[models]]
+kind = "DojoModel"
+class_hash = "0x8392af5d83264ff382af080c2939205adf22ae6bc19db2391813a48dbc6bb0"
+original_class_hash = "0x8392af5d83264ff382af080c2939205adf22ae6bc19db2391813a48dbc6bb0"
+abi = "manifests/dev/deployment/abis/models/conquest-Game-be8a9e5f.json"
+tag = "conquest-Game"
+qualified_path = "bushido::models::index::game"
+manifest_name = "conquest-Game-be8a9e5f"
+
+[[models.members]]
+name = "world_id"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "namespace"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "total_points"
+type = "u16"
+key = false
+
+[[models.members]]
+name = "name"
+type = "ByteArray"
+key = false
+
+[[models.members]]
+name = "description"
+type = "ByteArray"
+key = false
+
+[[models.members]]
+name = "whitelisted"
+type = "bool"
+key = false
+
+[[models.members]]
+name = "torii_url"
+type = "ByteArray"
+key = false
+
+[[models.members]]
+name = "image_uri"
+type = "ByteArray"
+key = false
+
+[[models]]
+kind = "DojoModel"
+class_hash = "0x61dfb2d3cbcbd5c227b5f18739baf61aa8e05050e3745caa9c718e78ee3ff8a"
+original_class_hash = "0x61dfb2d3cbcbd5c227b5f18739baf61aa8e05050e3745caa9c718e78ee3ff8a"
+abi = "manifests/dev/deployment/abis/models/conquest-Player-7f3e44c5.json"
+tag = "conquest-Player"
+qualified_path = "conquest::models::index::player"
+manifest_name = "conquest-Player-7f3e44c5"
+
+[[models.members]]
+name = "id"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "name"
+type = "felt252"
+key = false
+
+[[models]]
+kind = "DojoModel"
+class_hash = "0x41b0571ceebfa248e7bc539e5c7a1accf7dcdee20e393c8be904b927ffe6dc9"
+original_class_hash = "0x41b0571ceebfa248e7bc539e5c7a1accf7dcdee20e393c8be904b927ffe6dc9"
+abi = "manifests/dev/deployment/abis/models/conquest-Tile-22fbeffd.json"
+tag = "conquest-Tile"
+qualified_path = "conquest::models::index::tile"
+manifest_name = "conquest-Tile-22fbeffd"
+
+[[models.members]]
+name = "id"
+type = "u32"
+key = true
+
+[[models.members]]
+name = "player_id"
+type = "felt252"
+key = false
+
+[[models.members]]
+name = "time"
+type = "u64"
+key = false

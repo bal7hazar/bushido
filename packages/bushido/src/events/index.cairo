@@ -12,6 +12,7 @@ pub struct AchievementCreation {
     title: ByteArray,
     description: ByteArray,
     image_uri: ByteArray,
+    time: u64,
 }
 
 #[derive(IntrospectPacked, Copy, Drop, Serde)]
@@ -27,4 +28,5 @@ pub struct AchievementCompletion {
     #[key]
     player_id: felt252,
     progress: u8,
+    time: u64,
 }
