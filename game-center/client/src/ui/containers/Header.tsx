@@ -21,7 +21,7 @@ export const Header = () => {
           onClick={setGameQueryParam}
         >
           <img src={logo} alt="Game-Center" className="h-12" />
-          <p className="text-4xl font-bold">Game-Center</p>
+          <p className="text-4xl font-bold">Bushido</p>
         </div>
       </div>
       <div className="flex gap-4 items-center">

@@ -1,8 +1,8 @@
 {
   "world": {
     "kind": "WorldContract",
-    "class_hash": "0x5c4271c8cd454ceb8049d2b0724c99d12c2ef8077fc6ad325b18978f614aab0",
-    "original_class_hash": "0x5c4271c8cd454ceb8049d2b0724c99d12c2ef8077fc6ad325b18978f614aab0",
+    "class_hash": "0x6f38d5d9507c5d9546290e1a27e309efe5a9af3770b6cc1627db4a1b90a7dce",
+    "original_class_hash": "0x6f38d5d9507c5d9546290e1a27e309efe5a9af3770b6cc1627db4a1b90a7dce",
     "abi": [
       {
         "type": "impl",
@@ -1234,8 +1234,8 @@
         ]
       }
     ],
-    "address": "0x50ee3003ba7bdb4d072b0165c1f0f8645cccc21091e35c1b5164fd4fbac5cc8",
-    "transaction_hash": "0x467db1103837d043ff5011341f68a0aab0ed18e9867ab43a350d7078174e6dc",
+    "address": "0x260c368e1e2d671de961823eae4c3291e418322cbb6355efd6288c70410ec1e",
+    "transaction_hash": "0x1d12d494647d2e3b46282d95c193673c30fa1b061f1bf910b1807b389877cb5",
     "block_number": 3,
     "seed": "bushido",
     "metadata": {
@@ -1255,9 +1255,9 @@
   "contracts": [
     {
       "kind": "DojoContract",
-      "address": "0x69f3787ad4703fc9206195d5d1b8daa07dd97423a84f779207b3c27d283135a",
-      "class_hash": "0x4375af2547229402f56da5e2b3343ec847684785959bc6e5ccdf8be239c248c",
-      "original_class_hash": "0x4375af2547229402f56da5e2b3343ec847684785959bc6e5ccdf8be239c248c",
+      "address": "0x53ae976bc0d763ff1088bc761d4654445191bd181de7782ae0b34a7f083f23b",
+      "class_hash": "0x4536555d649bee5c56a0c2a8e2a4ff21c9ab110f0e43099b003b0d09ed13876",
+      "original_class_hash": "0x4536555d649bee5c56a0c2a8e2a4ff21c9ab110f0e43099b003b0d09ed13876",
       "base_class_hash": "0x2427dd10a58850ac9a5ca6ce04b7771b05330fd18f2e481831ad903b969e6b2",
       "abi": [
         {
@@ -1289,7 +1289,7 @@
           "items": [
             {
               "type": "function",
-              "name": "contract_name",
+              "name": "name",
               "inputs": [],
               "outputs": [
                 {

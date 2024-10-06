@@ -1,6 +1,6 @@
 [world]
-name = "Game Center"
-description = "Achievements Game Center"
+name = "Cartridge World"
+description = "Cartridge World Achievements"
 website = "https://github.com/dojoengine/dojo-starter"
 seed = "bushido"
 
