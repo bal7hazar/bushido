@@ -1,5 +1,5 @@
 import { useDojo } from "@/dojo/useDojo";
-import { Component, ComponentUpdate, World } from "@dojoengine/recs";
+import { Component, ComponentUpdate, defineEnterSystem, World } from "@dojoengine/recs";
 import { useCallback, useEffect, useState } from "react";
 import { defineComponentSystem } from "@dojoengine/recs";
 import { AchievementCompletion, AchievementCreation } from "@/dojo/bindings/models.gen";
@@ -15,14 +15,14 @@ export const useEvents = ({ playerId }: { playerId: string | undefined }): { cre
     },
   } = useDojo();
 
-  const handleAchievementCreation = (update: ComponentUpdate) => {
+  const handleAchievementCreation = useCallback((update: ComponentUpdate) => {
     setCreations((prev: any) => ({ ...prev, [update.value[0]?.id]: update.value[0] }));
-  };
+  }, [playerId]);
 
-  const handleAchievementCompletion = (update: ComponentUpdate) => {
+  const handleAchievementCompletion = useCallback((update: ComponentUpdate) => {
     if (update.value[0]?.player_id !== BigInt(playerId || 0)) return;
     setCompletions((prev: any) => ({ ...prev, [update.value[0]?.id]: update.value[0] }));
-  }
+  }, [playerId]);
 
   const createEventStream = useCallback((
     world: World,
@@ -42,7 +42,7 @@ export const useEvents = ({ playerId }: { playerId: string | undefined }): { cre
   useEffect(() => {
     createEventStream(world, AchievementCreation, handleAchievementCreation);
     createEventStream(world, AchievementCompletion, handleAchievementCompletion);
-  }, [world, createEventStream, playerId]);
+  }, [world, createEventStream, handleAchievementCreation, handleAchievementCompletion]);
 
   return {
     creations: Object.values(creations),

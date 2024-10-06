@@ -3,8 +3,15 @@ import logo from "/assets/logo.png";
 import { Pannel } from "../modules/Pannel";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
+import { useDojo } from "@/dojo/useDojo";
+import { usePlayer } from "@/hooks/usePlayer";
 
 export const Header = () => {
+  const {
+    account: { account },
+  } = useDojo();
+  const { player } = usePlayer({ playerId: account?.address });
+
   const navigate = useNavigate();
 
   const setGameQueryParam = useCallback(
@@ -25,6 +32,7 @@ export const Header = () => {
         </div>
       </div>
       <div className="flex gap-4 items-center">
+        <p className="text-2xl font-bold">{player ? player.name : ""}</p>
         <ModeToggle />
       </div>
     </div>
