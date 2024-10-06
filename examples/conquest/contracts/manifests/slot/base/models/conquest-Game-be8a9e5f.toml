@@ -1,0 +1,47 @@
+kind = "DojoModel"
+class_hash = "0x8392af5d83264ff382af080c2939205adf22ae6bc19db2391813a48dbc6bb0"
+original_class_hash = "0x8392af5d83264ff382af080c2939205adf22ae6bc19db2391813a48dbc6bb0"
+abi = "manifests/slot/base/abis/models/conquest-Game-be8a9e5f.json"
+tag = "conquest-Game"
+qualified_path = "bushido::models::index::game"
+manifest_name = "conquest-Game-be8a9e5f"
+
+[[members]]
+name = "world_id"
+type = "felt252"
+key = true
+
+[[members]]
+name = "namespace"
+type = "felt252"
+key = true
+
+[[members]]
+name = "total_points"
+type = "u16"
+key = false
+
+[[members]]
+name = "name"
+type = "ByteArray"
+key = false
+
+[[members]]
+name = "description"
+type = "ByteArray"
+key = false
+
+[[members]]
+name = "whitelisted"
+type = "bool"
+key = false
+
+[[members]]
+name = "torii_url"
+type = "ByteArray"
+key = false
+
+[[members]]
+name = "image_uri"
+type = "ByteArray"
+key = false
