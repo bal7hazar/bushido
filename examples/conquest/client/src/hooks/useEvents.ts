@@ -40,7 +40,6 @@ export const useEvents = ({ playerId }: { playerId: string | undefined }): { cre
   }, []);
 
   useEffect(() => {
-    console.log("createEventStream");
     createEventStream(world, AchievementCreation, handleAchievementCreation);
     createEventStream(world, AchievementCompletion, handleAchievementCompletion);
   }, [world, createEventStream, handleAchievementCreation, handleAchievementCompletion]);

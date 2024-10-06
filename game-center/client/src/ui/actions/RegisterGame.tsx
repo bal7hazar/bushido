@@ -14,14 +14,21 @@ import { Input } from "@/ui/elements/input";
 import { shortString } from "starknet";
 
 export const RegisterGame = () => {
-  const [worldId, setWorldId] = useState("");
-  const [namespace, setNamespace] = useState("");
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [toriiUrl, setToriiUrl] = useState("");
-  const [imageUri, setImageUri] = useState("");
+  // const [worldId, setWorldId] = useState("");
+  // const [namespace, setNamespace] = useState("");
+  // const [name, setName] = useState("");
+  // const [description, setDescription] = useState("");
+  // const [toriiUrl, setToriiUrl] = useState("");
+  // const [imageUri, setImageUri] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  // FIXME: Test purposes, remove this
+  const [worldId, setWorldId] = useState("0x684d1e701e054d931905a5dc2ebdf68eb5aab29d229cc22bee3859e85b4206c");
+  const [namespace, setNamespace] = useState("conquest");
+  const [name, setName] = useState("Conquest");
+  const [description, setDescription] = useState("A game to conquer the world");
+  const [toriiUrl, setToriiUrl] = useState("https://api.cartridge.gg/x/conquest/torii");
+  const [imageUri, setImageUri] = useState("https://bushido-teal.vercel.app/assets/logo.png");
 
   const {
     account: { account },

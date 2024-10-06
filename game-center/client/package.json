@@ -21,6 +21,7 @@
     "@dojoengine/create-burner": "v1.0.0-alpha.15",
     "@dojoengine/react": "v1.0.0-alpha.15",
     "@dojoengine/recs": "0.1.35",
+    "@dojoengine/sdk": "1.0.0-alpha.15",
     "@dojoengine/state": "v1.0.0-alpha.15",
     "@dojoengine/torii-client": "v1.0.0-alpha.15",
     "@dojoengine/utils": "v1.0.0-alpha.15",

@@ -38,7 +38,7 @@ export async function setup({ ...config }: Config) {
     toriiClient,
     contractModels as any,
     undefined,
-    []
+    [],
   );
 
   const dojoProvider = new DojoProvider(config.manifest, config.rpcUrl);

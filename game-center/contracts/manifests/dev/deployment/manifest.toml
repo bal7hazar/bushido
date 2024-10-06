@@ -79,6 +79,94 @@ key = false
 
 [[models]]
 kind = "DojoModel"
+class_hash = "0x4672551c0438cfa22f2e0e295fae45f5ce8548db4b282d666b74db298b42d1b"
+original_class_hash = "0x4672551c0438cfa22f2e0e295fae45f5ce8548db4b282d666b74db298b42d1b"
+abi = "manifests/dev/deployment/abis/models/game_center-AchievementCompletion-16a107b5.json"
+tag = "game_center-AchievementCompletion"
+qualified_path = "bushido::events::index::achievement_completion"
+manifest_name = "game_center-AchievementCompletion-16a107b5"
+
+[[models.members]]
+name = "world_id"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "namespace"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "id"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "player_id"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "progress"
+type = "u8"
+key = false
+
+[[models.members]]
+name = "time"
+type = "u64"
+key = false
+
+[[models]]
+kind = "DojoModel"
+class_hash = "0x41e2c85b555c1e7cc3dcfdaa1c614e4199ea76326928f9fb2d1beaf73418233"
+original_class_hash = "0x41e2c85b555c1e7cc3dcfdaa1c614e4199ea76326928f9fb2d1beaf73418233"
+abi = "manifests/dev/deployment/abis/models/game_center-AchievementCreation-604e47bb.json"
+tag = "game_center-AchievementCreation"
+qualified_path = "bushido::events::index::achievement_creation"
+manifest_name = "game_center-AchievementCreation-604e47bb"
+
+[[models.members]]
+name = "world_id"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "namespace"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "id"
+type = "felt252"
+key = true
+
+[[models.members]]
+name = "points"
+type = "u16"
+key = false
+
+[[models.members]]
+name = "title"
+type = "ByteArray"
+key = false
+
+[[models.members]]
+name = "description"
+type = "ByteArray"
+key = false
+
+[[models.members]]
+name = "image_uri"
+type = "ByteArray"
+key = false
+
+[[models.members]]
+name = "time"
+type = "u64"
+key = false
+
+[[models]]
+kind = "DojoModel"
 class_hash = "0x7877078cee53c30cdfc20402194db687cef0a0e178517ea125632dd0b6f548"
 original_class_hash = "0x7877078cee53c30cdfc20402194db687cef0a0e178517ea125632dd0b6f548"
 abi = "manifests/dev/deployment/abis/models/game_center-Game-6a4ff15e.json"

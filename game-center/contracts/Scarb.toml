@@ -17,4 +17,7 @@ bushido = { path = "../../packages/bushido" }
 build-external-contracts = [
     "bushido::models::index::Game",
     "bushido::models::index::Achievement",
+    "bushido::events::index::AchievementCreation",
+    "bushido::events::index::AchievementCompletion",
+
 ]
