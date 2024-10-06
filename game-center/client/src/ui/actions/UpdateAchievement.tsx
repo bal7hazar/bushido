@@ -34,8 +34,8 @@ export const UpdateAchievement = ({ achievement }: { achievement: Achievement })
       await updateAchievement({
         account: account,
         world_id: BigInt(achievement.worldId),
-        namespace: BigInt(achievement.namespace),
-        achievement_id: shortString.encodeShortString(identifier),
+        namespace: achievement.namespace,
+        achievement_id: shortString.encodeShortString(achievement.id),
         points: points,
       });
     } finally {
@@ -72,6 +72,7 @@ export const UpdateAchievement = ({ achievement }: { achievement: Achievement })
           placeholder="Unique Identifier"
           type="text"
           value={identifier}
+          disabled={true}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setIdentifier(e.target.value)}
         />
 

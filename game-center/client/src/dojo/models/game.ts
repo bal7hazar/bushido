@@ -1,4 +1,5 @@
 import { ComponentValue } from "@dojoengine/recs";
+import { shortString } from "starknet";
 
 export class Game {
   public worldId: string;
@@ -12,7 +13,7 @@ export class Game {
 
   constructor(component: ComponentValue) {
     this.worldId = `0x${component.world_id.toString(16)}`.replace("0x0x", "0x");
-    this.namespace = `0x${component.namespace.toString(16)}`.replace("0x0x", "0x");
+    this.namespace = shortString.decodeShortString(`0x${component.namespace.toString(16)}`.replace("0x0x", "0x"));
     this.totalPoints = component.total_points;
     this.name = component.name;
     this.description = component.description;

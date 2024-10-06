@@ -18,11 +18,18 @@ import { Achievement } from "@/dojo/models/achievement";
 import { UpdateAchievement } from "../actions/UpdateAchievement";
 import { useMemo } from "react";
 import { Separator } from "@/ui/elements/separator";
+import { Account, shortString } from "starknet";
+import { PublishAchievement } from "../actions/PublishAchievement";
+import { useDojo } from "@/dojo/useDojo";
 
 const MAX_POINTS = 1000;
 
 export const Achievements = ({ game }: { game: Game }) => {
-  const { achievements } = useAchievements({ worldId: game.worldId, namespace: game.namespace });
+  const {
+    account: { account },
+  } = useDojo();
+
+  const { achievements } = useAchievements({ worldId: game.worldId, namespace: shortString.encodeShortString(game.namespace) });
 
   const totalPoints = useMemo(() => {
     return achievements.reduce((acc, achievement) => acc + achievement.points, 0);
@@ -43,14 +50,14 @@ export const Achievements = ({ game }: { game: Game }) => {
           </SheetDescription>
           <RegisterAchievement game={game} />
           {achievements.map((achievement) => (
-            <Row key={achievement.id} achievement={achievement} />
+            <Row key={achievement.id} achievement={achievement} account={account} />
           ))}
           <Separator />
           <div className="flex justify-between items-center gap-4">
             <p>Total points</p>
             <Badge variant="secondary" className="flex flex-col items-center justify-center text-xl">
               <span>{totalPoints}</span>
-              <Separator className="bg-white" />
+              <Separator className="bg-slate-500" />
               <span>{MAX_POINTS}</span>
             </Badge>
           </div>
@@ -67,14 +74,15 @@ export const Achievements = ({ game }: { game: Game }) => {
   );
 };
 
-export const Row = ({ achievement }: { achievement: Achievement }) => {
+export const Row = ({ achievement, account }: { achievement: Achievement, account: Account }) => {
   return (
-    <div className="flex justify-between items-center gap-2 border border-slate-500 rounded-md p-2 bg-red-500">
+    <div className={`flex justify-between items-center gap-2 border border-slate-500 rounded-md p-2 ${!account ? 'border-green-500' : 'border-orange-500'}`}>
       <div className="flex justify-between items-center grow">
         <p>{achievement.id}</p>
         <Badge variant="secondary" className="h-9 w-10 flex items-center justify-center text-xl">{achievement.points}</Badge>
       </div>
       <UpdateAchievement achievement={achievement} />
+      <PublishAchievement />
     </div>
   );
 };

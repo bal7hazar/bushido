@@ -13,6 +13,7 @@ import { Button } from "@/ui/elements/button";
 import { Input } from "@/ui/elements/input";
 import { Game } from "@/dojo/models/game";
 import { Settings } from "lucide-react";
+import { shortString } from "starknet";
 
 export const UpdateGame = ({ game }: { game: Game}) => {
   const [worldId, setWorldId] = useState(game.worldId);
@@ -38,7 +39,7 @@ export const UpdateGame = ({ game }: { game: Game}) => {
       await updateGame({
         account: account,
         world_id: BigInt(worldId),
-        namespace: BigInt(namespace),
+        namespace: shortString.encodeShortString(namespace),
         name: name,
         description: description,
         torii_url: toriiUrl,
@@ -81,6 +82,7 @@ export const UpdateGame = ({ game }: { game: Game}) => {
           placeholder="World address"
           type="text"
           value={worldId}
+          disabled={true}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setWorldId(e.target.value)}
         />
 
@@ -89,6 +91,7 @@ export const UpdateGame = ({ game }: { game: Game}) => {
           placeholder="Namespace"
           type="text"
           value={namespace}
+          disabled={true}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNamespace(e.target.value)}
         />
 

@@ -33,7 +33,7 @@ export const RegisterAchievement = ({ game }: { game: Game }) => {
       await registerAchievement({
         account: account,
         world_id: BigInt(game.worldId),
-        namespace: BigInt(game.namespace),
+        namespace: shortString.encodeShortString(game.namespace),
         achievement_id: shortString.encodeShortString(identifier),
         points: points,
       });

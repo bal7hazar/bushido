@@ -11,6 +11,7 @@ import {
 } from "@/ui/elements/dialog";
 import { Button } from "@/ui/elements/button";
 import { Input } from "@/ui/elements/input";
+import { shortString } from "starknet";
 
 export const RegisterGame = () => {
   const [worldId, setWorldId] = useState("");
@@ -36,7 +37,7 @@ export const RegisterGame = () => {
       await registerGame({
         account: account,
         world_id: BigInt(worldId),
-        namespace: BigInt(namespace),
+        namespace: shortString.encodeShortString(namespace),
         name: name,
         description: description,
         torii_url: toriiUrl,
