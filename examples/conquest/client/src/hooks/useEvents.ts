@@ -17,7 +17,7 @@ export const useEvents = ({ playerId }: { playerId: string | undefined }): { cre
 
   const handleAchievementCreation = useCallback((update: ComponentUpdate) => {
     setCreations((prev: any) => ({ ...prev, [update.value[0]?.id]: update.value[0] }));
-  }, [playerId]);
+  }, []);
 
   const handleAchievementCompletion = useCallback((update: ComponentUpdate) => {
     if (update.value[0]?.player_id !== BigInt(playerId || 0)) return;
@@ -40,6 +40,7 @@ export const useEvents = ({ playerId }: { playerId: string | undefined }): { cre
   }, []);
 
   useEffect(() => {
+    console.log("createEventStream");
     createEventStream(world, AchievementCreation, handleAchievementCreation);
     createEventStream(world, AchievementCompletion, handleAchievementCompletion);
   }, [world, createEventStream, handleAchievementCreation, handleAchievementCompletion]);
