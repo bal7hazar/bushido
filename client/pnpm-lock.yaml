@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@cartridge/connector':
-        specifier: 0.3.44
-        version: 0.3.44(encoding@0.1.13)(get-starknet-core@3.3.3(starknet@6.11.0(encoding@0.1.13)))(react@18.3.1)
+        specifier: 0.3.46
+        version: 0.3.46(encoding@0.1.13)(get-starknet-core@3.3.3(starknet@6.11.0(encoding@0.1.13)))(react@18.3.1)
       '@dojoengine/core':
         specifier: v1.0.0-alpha.15
         version: 1.0.0-alpha.15(starknet@6.11.0(encoding@0.1.13))(typescript@5.6.2)
@@ -214,8 +214,8 @@ packages:
   '@cartridge/account-wasm@0.3.46':
     resolution: {integrity: sha512-XK/1yE0U/4v9UXelkOEmW1DNbFXikWnifm9aZQ9JfT2SrNcOM3DTMHQZXMbL217RzxM7yE8KqDVVGwN0//Ya7Q==}
 
-  '@cartridge/connector@0.3.44':
-    resolution: {integrity: sha512-aF3VSJauX+G717X/7iIGsVj48mGAZTKws+aIgrOZDf2Tp0mHNo4AaCZSvFAdhobyyz/YZqagEOzAjGZd2hzshA==}
+  '@cartridge/connector@0.3.46':
+    resolution: {integrity: sha512-iYfYdp6gaFJ8sKSFE4DpdVQJZj1tMroaeES76nC6U5aVQM8uz8OLtFB2AdNx/VO5QoGBB+6YbHyFffRCuVeaOg==}
 
   '@cartridge/controller@0.3.46':
     resolution: {integrity: sha512-xTr6u0dMIf6oYBf8PeF6edVND2QWWrjrHb+qUJ3taco6OEUFR0uEc2TfEr/PS7tTA1rIlgXJIeWP3VLRHz+IBg==}
@@ -2885,7 +2885,7 @@ snapshots:
 
   '@cartridge/account-wasm@0.3.46': {}
 
-  '@cartridge/connector@0.3.44(encoding@0.1.13)(get-starknet-core@3.3.3(starknet@6.11.0(encoding@0.1.13)))(react@18.3.1)':
+  '@cartridge/connector@0.3.46(encoding@0.1.13)(get-starknet-core@3.3.3(starknet@6.11.0(encoding@0.1.13)))(react@18.3.1)':
     dependencies:
       '@cartridge/controller': 0.3.46(encoding@0.1.13)
       '@starknet-react/core': 2.8.3(get-starknet-core@3.3.3(starknet@6.11.0(encoding@0.1.13)))(react@18.3.1)(starknet@6.11.0(encoding@0.1.13))
