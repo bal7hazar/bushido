@@ -11,12 +11,14 @@ import {
 } from "@/ui/elements/dialog";
 import { Button } from "@/ui/elements/button";
 import { Input } from "@/ui/elements/input";
-import { Game } from "@/dojo/models/game";
 import { shortString } from "starknet";
+import { Save } from "lucide-react";
+import { AchievementCreation } from "@/dojo/bindings/models.gen";
+import { Game } from "@/dojo/models/game";
 
-export const RegisterAchievement = ({ game }: { game: Game }) => {
-  const [identifier, setIdentifier] = useState("");
-  const [points, setPoints] = useState(0);
+export const RegisterAchievement = ({ game, achievement }: { game: Game, achievement: AchievementCreation }) => {
+  const [identifier, setIdentifier] = useState(shortString.decodeShortString(`0x${achievement.id.toString(16)}`.replace('0x0x', '0x')));
+  const [points, setPoints] = useState(Number(achievement.points));
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -43,6 +45,7 @@ export const RegisterAchievement = ({ game }: { game: Game }) => {
   }, [
     account,
     game,
+    achievement,
     identifier,
     points,
   ]);
@@ -56,7 +59,9 @@ export const RegisterAchievement = ({ game }: { game: Game }) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button disabled={disabled}>New</Button>
+        <Button variant="outline" size="icon" disabled={disabled}>
+          <Save />
+        </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>

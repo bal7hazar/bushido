@@ -8,9 +8,11 @@ import {
   DialogTitle,
   DialogTrigger,
   DialogClose,
+  DialogFooter,
 } from "@/ui/elements/dialog";
 import { Button } from "@/ui/elements/button";
 import { Input } from "@/ui/elements/input";
+import { Label } from "@/ui/elements/label";
 import { Game } from "@/dojo/models/game";
 import { Settings } from "lucide-react";
 import { shortString } from "starknet";
@@ -76,66 +78,92 @@ export const UpdateGame = ({ game }: { game: Game}) => {
           <DialogTitle>Update a game</DialogTitle>
           <DialogDescription>Update the game data</DialogDescription>
         </DialogHeader>
-
-        <Input
-          className="w-full"
-          placeholder="World address"
-          type="text"
-          value={worldId}
-          disabled={true}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setWorldId(e.target.value)}
-        />
-
-        <Input
-          className="w-full"
-          placeholder="Namespace"
-          type="text"
-          value={namespace}
-          disabled={true}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNamespace(e.target.value)}
-        />
-
-        <Input
-          className="w-full"
-          placeholder="Name"
-          type="text"
-          value={name}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
-        />
-
-        <Input
-          className="w-full"
-          placeholder="Description"
-          type="text"
-          value={description}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDescription(e.target.value)}
-        />
-        
-        <Input
-          className="w-full"
-          placeholder="Image"
-          type="text"
-          value={imageUri}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setImageUri(e.target.value)}
-        />
-
-        <Input
-          className="w-full"
-          placeholder="Torii URL"
-          type="text"
-          value={toriiUrl}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setToriiUrl(e.target.value)}
-        />
-
-        <DialogClose asChild>
-          <Button
-            disabled={!worldId || !namespace || !name || !description || !toriiUrl}
-            isLoading={isLoading}
-            onClick={handleClick}
-          >
-            Save
-          </Button>
-        </DialogClose>
+        <div className="grid gap-4 py-4">
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="world" className="text-right">World address</Label>
+            <Input
+              className="col-span-3"
+              placeholder="World address"
+              id="world"
+              type="text"
+              value={worldId}
+              disabled={true}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setWorldId(e.target.value)}
+            />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="namespace" className="text-right">Namespace</Label>
+            <Input
+              className="col-span-3"
+              placeholder="Namespace"
+              id="namespace"
+              type="text"
+              value={namespace}
+              disabled={true}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNamespace(e.target.value)}
+            />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="name" className="text-right">Name</Label>
+            <Input
+              className="col-span-3"
+              placeholder="Name"
+              id="name"
+              type="text"
+              value={name}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
+            />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="description" className="text-right">Description</Label>
+            <Input
+              className="col-span-3"
+              placeholder="Description"
+              id="description"
+              type="text"
+              value={description}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDescription(e.target.value)}
+            />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="image" className="text-right">Image</Label>
+            <Input
+              className="col-span-3"
+              placeholder="Image"
+              id="image"
+              type="text"
+              value={imageUri}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setImageUri(e.target.value)}
+            />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="torii" className="text-right">Torii URL</Label>
+            <Input
+              className="col-span-3"
+              placeholder="Torii URL"
+              id="torii"
+              type="text"
+              value={toriiUrl}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setToriiUrl(e.target.value)}
+            />
+          </div>
+        </div>
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button
+              disabled={!worldId || !namespace || !name || !description || !toriiUrl}
+              isLoading={isLoading}
+              onClick={handleClick}
+            >
+              Save
+            </Button>
+          </DialogClose>
+          <DialogClose asChild>
+            <Button variant="outline">
+              Close
+            </Button>
+          </DialogClose>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

@@ -33,11 +33,8 @@ export const Games = () => {
         <TableHeader>
           <TableRow>
             <TableHead />
-            <TableHead>World</TableHead>
-            <TableHead>Namespace</TableHead>
             <TableHead>Name</TableHead>
             <TableHead>Description</TableHead>
-            <TableHead>Torii URL</TableHead>
             <TableHead> </TableHead>
           </TableRow>
         </TableHeader>
@@ -50,11 +47,8 @@ export const Games = () => {
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
               </TableCell>
-              <TableCell>{shortenHex(game.worldId)}</TableCell>
-              <TableCell>{game.namespace}</TableCell>
               <TableCell>{game.name}</TableCell>
               <TableCell>{game.description}</TableCell>
-              <TableCell>{game.toriiUrl}</TableCell>
               <TableCell className="flex gap-2">
                 <UpdateGame game={game} />
                 <Achievements game={game} />
