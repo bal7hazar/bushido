@@ -16,7 +16,7 @@
     "create-models": "./bin/models.cjs"
   },
   "dependencies": {
-    "@cartridge/connector": "^0.3.46",
+    "@cartridge/connector": "0.3.44",
     "@dojoengine/core": "v1.0.0-alpha.15",
     "@dojoengine/create-burner": "v1.0.0-alpha.15",
     "@dojoengine/react": "v1.0.0-alpha.15",

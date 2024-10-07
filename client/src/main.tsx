@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import App from "./App.js";
 import "./index.css";
 import { setup, SetupResult } from "./dojo/setup.ts";
 import { DojoProvider } from "./dojo/context.tsx";
 import { dojoConfig } from "../dojo.config.ts";
 import { StarknetConfig, jsonRpcProvider } from "@starknet-react/core";
 import { Chain, sepolia } from "@starknet-react/chains";
-import { controller } from "./connectors/controller";
+import { controller } from "./connectors/controller.ts";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,

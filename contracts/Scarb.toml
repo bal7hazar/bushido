@@ -11,7 +11,7 @@ dev = "sozo clean && sozo build --typescript && sozo migrate plan && sozo migrat
 
 [dependencies]
 dojo = { git = "https://github.com/dojoengine/dojo", tag = "v1.0.0-alpha.14" }
-bushido = { path = "../../packages/bushido" }
+bushido = { path = "../packages/bushido" }
 
 [[target.dojo]]
 build-external-contracts = [
