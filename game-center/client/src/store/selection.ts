@@ -1,19 +1,14 @@
+import { Game } from "@/dojo/models/game";
 import { create } from "zustand";
 
-interface ActionStore {
-  selection: number;
-  setSelection: (selection: number) => void;
+interface InterfaceStore {
+  selection: Game;
+  setSelection: (selection: Game) => void;
   resetSelection: () => void;
-  to: number;
-  setTo: (to: number) => void;
-  resetTo: () => void;
 }
 
-export const useActionStore = create<ActionStore>()((set, get) => ({
-  selection: 0,
+export const useInterfaceStore = create<InterfaceStore>()((set, get) => ({
+  selection: Game.default(),
   setSelection: (selection) => set({ selection }),
-  resetSelection: () => set({ selection: 0 }),
-  to: 0,
-  setTo: (to) => set({ to }),
-  resetTo: () => set({ to: 0 }),
+  resetSelection: () => set({ selection: Game.default() }),
 }));

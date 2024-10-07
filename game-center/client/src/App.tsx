@@ -3,6 +3,7 @@ import { Header } from "./ui/containers/Header";
 import { ThemeProvider } from "./ui/elements/theme-provider";
 import { Toaster } from "./ui/elements/sonner";
 import { Games } from "./ui/containers/Games";
+import { Player } from "./ui/containers/Player";
 
 function Core() {
   return (
@@ -10,6 +11,7 @@ function Core() {
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <Header />
         <Games />
+        <Player />
       </ThemeProvider>
     </div>
   );

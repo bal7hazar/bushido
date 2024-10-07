@@ -71,7 +71,7 @@ export const useEvents = ({ game, playerId }: { game: Game, playerId: string | u
   const { setup: { world, }, } = useDojo();
 
   const setupToriiClient = useCallback(async () => {
-    if (!game) return;
+    if (!game || !game.toriiUrl) return;
     const config = dojoConfig();
     const client = await torii.createClient({
       rpcUrl: config.rpcUrl, // FIXME: Not required?

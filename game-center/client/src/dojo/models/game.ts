@@ -22,6 +22,19 @@ export class Game {
     this.imageUri = component.image_uri;
   }
 
+  static default(): Game {
+    return new Game({
+      world_id: 0,
+      namespace: "0x0",
+      total_points: 0,
+      name: "",
+      description: "",
+      whitelisted: false,
+      torii_url: "",
+      image_uri: "",
+    });
+  }
+
   getId(): string {
     return `${this.worldId}-${this.namespace}`;
   }

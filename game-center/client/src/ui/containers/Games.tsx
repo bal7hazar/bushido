@@ -15,12 +15,15 @@ import {
 } from "@/ui/elements/avatar";
 import { UpdateGame } from "../actions/UpdateGame";
 import { RegisterGame } from "../actions/RegisterGame";
-import { RegisterAchievement } from "../actions/RegisterAchievement";
 import { Achievements } from "./Achievements";
-import { shortString } from "starknet";
-import { shortenHex } from "@dojoengine/utils";
 import logo from "/assets/logo.png";
 import { PublishGame } from "../actions/PublishGame";
+import { useInterfaceStore } from "@/store/selection";
+import { Game } from "@/dojo/models/game";
+import { useMemo } from "react";
+import { useAchievements } from "@/hooks/useAchievements";
+import { useEvents } from "@/hooks/useEvents";
+import { useDojo } from "@/dojo/useDojo";
 
 export const Games = () => {
   const { games } = useGames();
@@ -40,24 +43,40 @@ export const Games = () => {
         </TableHeader>
         <TableBody>
           {games.map((game) => (
-            <TableRow key={game.getId()}>
-              <TableCell>
-                <Avatar>
-                  <AvatarImage src={game.imageUri || logo} alt="game" />
-                  <AvatarFallback>CN</AvatarFallback>
-                </Avatar>
-              </TableCell>
-              <TableCell>{game.name}</TableCell>
-              <TableCell>{game.description}</TableCell>
-              <TableCell className="flex gap-2">
-                <UpdateGame game={game} />
-                <Achievements game={game} />
-                <PublishGame />
-              </TableCell>
-            </TableRow>
+            <GameRow key={game.getId()} game={game} />
           ))}
         </TableBody>
       </Table>
     </div>
   );
+};
+
+export const GameRow = ({ game }: { game: Game }) => {
+  const { selection, setSelection } = useInterfaceStore();
+
+  const handleClick = (game: Game) => {
+    setSelection(game);
+  };
+
+  const isSelected = useMemo(() => {
+    return selection.worldId === game.worldId && selection.namespace === game.namespace;
+  }, [selection, game]);
+  
+  return (
+    <TableRow className={`${isSelected ? "opacity-100" : "opacity-50"}`} key={game.getId()} onClick={() => handleClick(game)}>
+      <TableCell>
+        <Avatar>
+          <AvatarImage src={game.imageUri || logo} alt="game" />
+          <AvatarFallback>GG</AvatarFallback>
+        </Avatar>
+      </TableCell>
+      <TableCell>{game.name}</TableCell>
+      <TableCell>{game.description}</TableCell>
+      <TableCell className="flex gap-2">
+        <UpdateGame game={game} />
+        <Achievements game={game} />
+        <PublishGame />
+      </TableCell>
+    </TableRow>
+  )
 };
