@@ -16,6 +16,9 @@ mod Actions {
     use conquest::components::playable::PlayableComponent;
     use conquest::components::questable::QuestableComponent;
 
+    // Internal imports
+    use conquest::types::quest::Quest;
+
     // Local imports
 
     use super::IActions;
@@ -71,7 +74,8 @@ mod Actions {
     #[abi(embed_v0)]
     impl ActionsImpl of IActions<ContractState> {
         fn signup(self: @ContractState, name: felt252) {
-            self.signable.signup(self.world(), name)
+            self.signable.signup(self.world(), name);
+            self.questable.validate(self.world(), Quest::Squire)
         }
 
         fn conquest(self: @ContractState) {

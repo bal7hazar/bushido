@@ -5,6 +5,7 @@ mod elements {
         mod interface;
         mod conqueror;
         mod fanatic;
+        mod squire;
     }
 }
 

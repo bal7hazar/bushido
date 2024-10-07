@@ -16,23 +16,34 @@ import {
 import { Progress } from "../elements/ui/progress";
 import { AchievementCompletion, AchievementCreation } from "@/dojo/bindings/models.gen";
 import Quest from "@/dojo/types/quest";
+import { Connection } from "../components/Connection";
 
 export const Overlay = () => {
   const {
     account: { account },
   } = useDojo();
 
-  const { player } = usePlayer({ playerId: account.address });
-  const { tiles } = useTiles({ playerId: account.address });
-  const { creations, completions } = useEvents({ playerId: account.address });
+  const { player } = usePlayer({ playerId: account?.address });
+  const { tiles } = useTiles({ playerId: account?.address });
+  const { creations, completions } = useEvents({ playerId: account?.address });
 
   return (
     <div className={`absolute top-12 left-1/2 -translate-x-1/2 w-full`}>
-      {!player && <WelcomeScene />}
-      {!!player && <GameScene tiles={tiles} creations={creations} completions={completions} playerId={account.address} />}
+      {!account && <WelcomeVisitor />}
+      {!!account && !player && <WelcomeScene />}
+      {!!account && !!player && <GameScene tiles={tiles} creations={creations} completions={completions} playerId={account?.address} />}
     </div>
   )
 };
+
+export const WelcomeVisitor = () => {
+  return (
+    <div className="flex flex-col gap-8 items-center absolute w-36 left-1/2 -translate-x-1/2 top-48">
+      <h1 className="text-4xl text-center">Welcome to Conquest</h1>
+      <Connection />
+    </div>
+  );
+}
 
 export const WelcomeScene = () => {
   return (
@@ -75,7 +86,7 @@ export const Achievement = ({ creation, completions, playerId }: { creation: Ach
   const completion = filteredCompletions.reduce((max, completion) => completion.progress > max.progress ? completion : max, filteredCompletions[0]);
   const progress = completion ? Number(completion.progress) : 0;
   return (
-    <Card className={`${progress === 100 ? 'border-green-500' : 'border-orange-500'}`}>
+    <Card className={`w-[150px] ${progress === 100 ? 'border-green-500' : 'border-orange-500'}`}>
       <div className="flex flex-col justify-between h-full">
         <CardHeader>
           <CardTitle>{`${creation.title}`}</CardTitle>

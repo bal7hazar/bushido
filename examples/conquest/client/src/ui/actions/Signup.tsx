@@ -24,7 +24,7 @@ export const Signup = () => {
 
   const [name, setName] = useState<string>("");
 
-  const { player } = usePlayer({ playerId: account.address });
+  const { player } = usePlayer({ playerId: account?.address });
 
   const disabled = useMemo(() => !name, [name]);
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +32,7 @@ export const Signup = () => {
     setName(e.target.value)
   }, [setName]);
 
-  if (!!player) return null;
+  if (!account || !!player) return null;
 
   return (
 

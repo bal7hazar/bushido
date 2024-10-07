@@ -1,10 +1,10 @@
 import { ModeToggle } from "@/ui/components/Theme";
 import logo from "/assets/logo.png";
-import { Pannel } from "../modules/Pannel";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
 import { useDojo } from "@/dojo/useDojo";
 import { usePlayer } from "@/hooks/usePlayer";
+import { Connection } from "../components/Connection";
 
 export const Header = () => {
   const {
@@ -22,7 +22,6 @@ export const Header = () => {
   return (
     <div className="w-full flex justify-between items-center px-8 py-2">
       <div className="flex gap-4 items-center">
-        <Pannel />
         <div
           className="flex gap-4 items-center cursor-pointer"
           onClick={setGameQueryParam}
@@ -33,6 +32,7 @@ export const Header = () => {
       </div>
       <div className="flex gap-4 items-center">
         <p className="text-2xl font-bold">{player ? player.name : ""}</p>
+        <Connection />
         <ModeToggle />
       </div>
     </div>

@@ -101,5 +101,29 @@ mod QuestableComponent {
                     progress: progress,
                 );
         }
+
+        fn validate(self: @ComponentState<TContractState>, world: IWorldDispatcher, quest: Quest,) {
+            // [Setup] Datastore
+            let store: Store = StoreTrait::new(world);
+
+            // [Check] Player exists
+            let player_id: felt252 = get_caller_address().into();
+            let mut player = store.get_player(player_id);
+            player.assert_is_created();
+
+            // [Event] Emit quest completion event
+            let contract_address = get_contract_address();
+            let namespace = IContractDispatcher { contract_address }.namespace_hash();
+            let mut achievable = get_dep_component!(self, InternalImpl);
+            achievable
+                .update_achievement_progress(
+                    world,
+                    world.contract_address.into(),
+                    namespace,
+                    achievement_id: quest.identifier(),
+                    player_id: player_id,
+                    progress: 100,
+                );
+        }
     }
 }
