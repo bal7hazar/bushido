@@ -21,3 +21,5 @@ build-external-contracts = [
     "bushido::events::index::AchievementCompletion",
 
 ]
+
+[profile.slot]

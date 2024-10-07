@@ -32,7 +32,7 @@ export const Achievements = ({ game }: { game: Game }) => {
   } = useDojo();
 
   const { achievements } = useAchievements({ worldId: game.worldId, namespace: shortString.encodeShortString(game.namespace) });
-  const { creations, completions } = useEvents({ game, playerId: account?.address });
+  const { creations } = useEvents({ game, playerId: account?.address });
 
   const totalPoints = useMemo(() => {
     return achievements.reduce((acc, achievement) => acc + achievement.points, 0);
@@ -59,7 +59,7 @@ export const Achievements = ({ game }: { game: Game }) => {
            Registered achievements
           </SheetDescription>
           {achievements.map((achievement) => (
-            <AchievementRow key={achievement.id} achievement={achievement} creations={creations} completions={completions} />
+            <AchievementRow key={achievement.id} achievement={achievement} creations={creations} />
           ))}
           <Separator />
           <SheetDescription className="font-['Indie Flower'] text-lg">
@@ -104,7 +104,7 @@ export const CreationRow = ({ game, achievement, achievements }: { game: Game, a
   );
 };
 
-export const AchievementRow = ({ achievement, creations, completions }: { achievement: Achievement, creations: any, completions: any }) => {
+export const AchievementRow = ({ achievement, creations }: { achievement: Achievement, creations: AchievementCreation[] }) => {
   const isFound = useMemo(() => {
     const achivementId = BigInt(shortString.encodeShortString(achievement.id));
     return creations.findIndex((creation: any) => creation.id === achivementId) !== -1;

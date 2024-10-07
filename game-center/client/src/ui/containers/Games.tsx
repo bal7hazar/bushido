@@ -21,9 +21,6 @@ import { PublishGame } from "../actions/PublishGame";
 import { useInterfaceStore } from "@/store/selection";
 import { Game } from "@/dojo/models/game";
 import { useMemo } from "react";
-import { useAchievements } from "@/hooks/useAchievements";
-import { useEvents } from "@/hooks/useEvents";
-import { useDojo } from "@/dojo/useDojo";
 
 export const Games = () => {
   const { games } = useGames();

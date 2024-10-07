@@ -26,9 +26,9 @@ export const Player = () => {
   const { selection } = useInterfaceStore();
   const { account: { account }} = useDojo();
   const { achievements } = useAchievements({ worldId: selection.worldId, namespace: shortString.encodeShortString(selection.namespace) });
-  const { creations, completions } = useEvents({ game: selection, playerId: account.address });
+  const { creations, completions } = useEvents({ game: selection, playerId: account?.address });
 
-  if (!selection.worldId || !parseInt(selection.namespace, 16)) return null;
+  if (!account || !selection.worldId || !parseInt(selection.namespace, 16)) return null;
 
   return (
     <div className="mx-auto flex flex-col gap-4 items-center">
