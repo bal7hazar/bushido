@@ -12,11 +12,8 @@
     "codegen": "graphql-codegen",
     "gen:models": "npx create-models ../contracts/manifests/dev/manifest.json ./src/dojo/generated/contractModels.ts"
   },
-  "bin": {
-    "create-models": "./bin/models.cjs"
-  },
   "dependencies": {
-    "@cartridge/connector": "0.3.44",
+    "@cartridge/connector": "0.3.46",
     "@dojoengine/core": "v1.0.0-alpha.15",
     "@dojoengine/create-burner": "v1.0.0-alpha.15",
     "@dojoengine/react": "v1.0.0-alpha.15",

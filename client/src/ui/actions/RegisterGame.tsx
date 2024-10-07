@@ -30,7 +30,7 @@ export const RegisterGame = () => {
   const [name, setName] = useState("Conquest");
   const [description, setDescription] = useState("A game to conquer the world");
   const [toriiUrl, setToriiUrl] = useState("https://api.cartridge.gg/x/conquest/torii");
-  const [imageUri, setImageUri] = useState("https://bushido-teal.vercel.app/assets/logo.png");
+  const [imageUri, setImageUri] = useState("https://conquest-one.vercel.app/assets/logo.png");
 
   const {
     account: { account },
